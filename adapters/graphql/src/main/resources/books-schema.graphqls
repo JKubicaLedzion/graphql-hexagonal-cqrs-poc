@@ -1,0 +1,30 @@
+type Book {
+    id: ID!
+    title: String!
+    author: String!
+    category: Category!
+}
+
+#type BookNotFound {
+#    message: String!
+#}
+
+#union UpdateBookResult = Book | BookNotFound
+
+enum Category{
+    THRILLER,
+    HORROR,
+    CRIMINAL,
+    FANTASY
+}
+
+type Query {
+    getBookById(id: ID!): Book
+    getAllBooks: [Book]
+}
+
+type Mutation {
+    addBook(title: String!, author: String!, category: Category!) : Book!
+    updateBook(id: ID!, title: String, author: String, category: Category) : Book!
+    deleteBook(id: ID!): Boolean!
+}
