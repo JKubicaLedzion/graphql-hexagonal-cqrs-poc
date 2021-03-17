@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface BookRepository {
 
-    Optional<Book> getBookById(Long id);
+    Optional<Book> getBookById(String id);
 
     List<Book> getAllBooks();
 
@@ -15,5 +15,5 @@ public interface BookRepository {
 
     Book updateBook(Book book);
 
-    boolean deleteBook(Long id);
+    boolean deleteBook(String id);
 }

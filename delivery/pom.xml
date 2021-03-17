@@ -26,7 +26,12 @@
             <groupId>com.ledzion</groupId>
         </dependency>
         <dependency>
-            <artifactId>H2database</artifactId>
+            <artifactId>mongodb</artifactId>
+            <groupId>com.ledzion.adapters</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <artifactId>h2database</artifactId>
             <groupId>com.ledzion.adapters</groupId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

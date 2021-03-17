@@ -1,6 +1,5 @@
 package com.ledzion.libraryservice.core.service;
 
-import com.ledzion.libraryservice.api.BookRepository;
 import com.ledzion.libraryservice.api.BookServiceCommandHandler;
 import com.ledzion.libraryservice.api.command.AddBookCommand;
 import com.ledzion.libraryservice.api.command.DeleteBookCommand;
@@ -9,38 +8,26 @@ import com.ledzion.libraryservice.api.model.Book;
 
 public class BookCommandHandlerImpl implements BookServiceCommandHandler {
 
-    private BookRepository bookRepository;
+    private AddBookCommandHandler addBookCommandHandler;
+    private UpdateBookCommandHandler updateBookCommandHandler;
+    private DeleteBookCommandHandler deleteBookCommandHandler;
 
-    public BookCommandHandlerImpl(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    public BookCommandHandlerImpl(AddBookCommandHandler addBookCommandHandler,
+        UpdateBookCommandHandler updateBookCommandHandler, DeleteBookCommandHandler deleteBookCommandHandler) {
+        this.addBookCommandHandler = addBookCommandHandler;
+        this.updateBookCommandHandler = updateBookCommandHandler;
+        this.deleteBookCommandHandler = deleteBookCommandHandler;
     }
 
     public Book handle(AddBookCommand addBookCommand) {
-        return bookRepository.addBook(
-                Book.builder()
-                        .title(addBookCommand.getTitle())
-                        .author(addBookCommand.getAuthor())
-                        .category(addBookCommand.getCategory())
-                        .build());
+        return addBookCommandHandler.handle(addBookCommand);
     }
 
     public Book handle(UpdateBookCommand updateBookCommand) {
-        Book book = bookRepository.getBookById(updateBookCommand.getId()).get();
-        book = Book.builder()
-                .title(updateBookCommand.getTitle() != null ? updateBookCommand.getTitle() : book.getTitle())
-                .author(updateBookCommand.getAuthor() != null ? updateBookCommand.getAuthor() : book.getAuthor())
-                .category(updateBookCommand.getCategory() != null ? updateBookCommand.getCategory() : book.getCategory())
-                .build();
-        bookRepository.addBook(book);
-        return book;
+        return updateBookCommandHandler.handle(updateBookCommand);
     }
 
     public boolean handle(DeleteBookCommand deleteBookCommand) {
-        try {
-            bookRepository.deleteBook(deleteBookCommand.getId());
-            return true;
-        } catch (final Exception e) {
-            return false;
-        }
+        return deleteBookCommandHandler.handle(deleteBookCommand);
     }
 }

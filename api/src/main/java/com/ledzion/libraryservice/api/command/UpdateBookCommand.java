@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder
 public class UpdateBookCommand {
 
-    private Long id;
+    private String id;
 
     private String title;
 

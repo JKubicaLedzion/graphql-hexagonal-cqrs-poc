@@ -5,12 +5,6 @@ type Book {
     category: Category!
 }
 
-#type BookNotFound {
-#    message: String!
-#}
-
-#union UpdateBookResult = Book | BookNotFound
-
 enum Category{
     THRILLER,
     HORROR,

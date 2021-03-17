@@ -7,15 +7,11 @@ import com.ledzion.libraryservice.api.command.DeleteBookCommand;
 import com.ledzion.libraryservice.api.command.UpdateBookCommand;
 import com.ledzion.libraryservice.api.model.Book;
 import com.ledzion.libraryservice.api.model.Category;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
 public class Mutation implements GraphQLMutationResolver {
 
     private BookServiceCommandHandler bookServiceCommandHandler;
 
-    @Autowired
     public Mutation(BookServiceCommandHandler bookServiceCommandHandler) {
         this.bookServiceCommandHandler = bookServiceCommandHandler;
     }
@@ -29,7 +25,7 @@ public class Mutation implements GraphQLMutationResolver {
                         .build());
     }
 
-    public Book updateBook(Long id, String title, String author, Category category){
+    public Book updateBook(String id, String title, String author, Category category){
         return bookServiceCommandHandler.handle(
                 UpdateBookCommand.builder()
                         .id(id)
@@ -39,7 +35,7 @@ public class Mutation implements GraphQLMutationResolver {
                         .build());
     }
 
-    public boolean deleteBook(Long id) {
+    public boolean deleteBook(String id) {
         return bookServiceCommandHandler.handle(new DeleteBookCommand(id));
     }
 }

@@ -1,18 +1,16 @@
-package com.ledzion.libraryservice.adapters.h2database.model;
+package com.ledzion.libraryservice.adapters.mongodb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "books")
+@Document(collection = "books")
 @Builder
 @Data
 @AllArgsConstructor
@@ -20,7 +18,6 @@ import javax.persistence.Id;
 public class BookEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String title;

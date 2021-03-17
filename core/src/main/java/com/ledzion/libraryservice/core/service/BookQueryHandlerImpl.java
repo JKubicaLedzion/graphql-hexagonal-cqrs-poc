@@ -8,8 +8,6 @@ import com.ledzion.libraryservice.api.query.GetBookQuery;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public class BookQueryHandlerImpl implements BookServiceQueryHandler {
 
@@ -24,8 +22,6 @@ public class BookQueryHandlerImpl implements BookServiceQueryHandler {
     }
 
     public List<Book> handle(GetAllBooksQuery getAllBooksQuery) {
-        return StreamSupport.stream(
-                bookRepository.getAllBooks().spliterator(), false)
-                .collect(Collectors.toList());
+        return bookRepository.getAllBooks();
     }
 }
