@@ -1,6 +1,7 @@
 package com.ledzion.libraryservice.adapters.h2database.repository;
 
-import com.ledzion.libraryservice.adapters.h2database.model.BookEntity;
+import com.ledzion.libraryservice.adapters.h2database.exceptions.BookNotFound;
+import com.ledzion.libraryservice.adapters.h2database.mappers.BookEntityMapper;
 import com.ledzion.libraryservice.api.BookRepository;
 import com.ledzion.libraryservice.api.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,53 +16,50 @@ import java.util.stream.StreamSupport;
 public class BookH2RepositoryImpl implements BookRepository {
 
     private H2BookRepository h2BookRepository;
+    private BookEntityMapper bookEntityMapper;
 
     @Autowired
-    public BookH2RepositoryImpl(H2BookRepository h2BookRepository) {
+    public BookH2RepositoryImpl(H2BookRepository h2BookRepository, BookEntityMapper bookEntityMapper) {
         this.h2BookRepository = h2BookRepository;
+        this.bookEntityMapper = bookEntityMapper;
     }
 
     @Override
     public Optional<Book> getBookById(String id) {
-        BookEntity entity = h2BookRepository.findById(id).get();
-        return Optional.of(
-                Book.builder()
-                        .id(entity.getId())
-                        .title(entity.getTitle())
-                        .author(entity.getAuthor())
-                        .build());
+        return h2BookRepository.findById(id)
+                .map(b -> bookEntityMapper.bookEntityToBook(b));
     }
 
     @Override
     public List<Book> getAllBooks() {
-//        return StreamSupport.stream(
-//                h2BookRepository.findAll().spliterator(), false)
-//                .collect(Collectors.toList());
-        return List.of();
+        return StreamSupport.stream(
+                h2BookRepository.findAll().spliterator(), false)
+                .map(b -> bookEntityMapper.bookEntityToBook(b))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Book addBook(Book book) {
-        BookEntity entity = h2BookRepository.save(
-                BookEntity.builder()
-                        .title(book.getTitle())
-                        .author(book.getAuthor())
-                        .build());
-        return book;
+        return bookEntityMapper.bookEntityToBook(
+                h2BookRepository.save(
+                        bookEntityMapper.bookToBookEntity(book)));
     }
 
     @Override
     public Book updateBook(Book book) {
-        BookEntity entity = h2BookRepository.save(
-                BookEntity.builder()
-                        .title(book.getTitle())
-                        .author(book.getAuthor())
-                        .build());
-        return book;
+        if (!h2BookRepository.existsById(book.getId())) {
+            throw new BookNotFound("Book not found.");
+        }
+        return bookEntityMapper.bookEntityToBook(
+                h2BookRepository.save(
+                        bookEntityMapper.bookToBookEntity(book)));
     }
 
     @Override
     public boolean deleteBook(String id) {
+        if (!h2BookRepository.existsById(id)) {
+            return false;
+        }
         h2BookRepository.deleteById(id);
         return true;
     }

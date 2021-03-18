@@ -17,7 +17,6 @@ import java.util.stream.StreamSupport;
 public class BookMongoDBRepositoryImpl implements BookRepository {
 
     private MongoDBRepository mongoDBRepository;
-
     private BookEntityMapper bookEntityMapper;
 
     @Autowired
