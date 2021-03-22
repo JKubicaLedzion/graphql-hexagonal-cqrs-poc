@@ -1,10 +1,10 @@
 package com.ledzion.libraryservice.adapters.h2database.repository;
 
-import com.ledzion.libraryservice.adapters.h2database.exceptions.BookNotFound;
 import com.ledzion.libraryservice.adapters.h2database.mappers.BookEntityMapper;
 import com.ledzion.libraryservice.api.BookRepository;
+import com.ledzion.libraryservice.api.exceptions.BookNotFound;
 import com.ledzion.libraryservice.api.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,16 +13,11 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Repository
+@AllArgsConstructor
 public class BookH2RepositoryImpl implements BookRepository {
 
     private H2BookRepository h2BookRepository;
     private BookEntityMapper bookEntityMapper;
-
-    @Autowired
-    public BookH2RepositoryImpl(H2BookRepository h2BookRepository, BookEntityMapper bookEntityMapper) {
-        this.h2BookRepository = h2BookRepository;
-        this.bookEntityMapper = bookEntityMapper;
-    }
 
     @Override
     public Optional<Book> getBookById(String id) {

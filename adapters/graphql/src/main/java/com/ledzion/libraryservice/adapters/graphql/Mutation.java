@@ -7,16 +7,17 @@ import com.ledzion.libraryservice.api.command.DeleteBookCommand;
 import com.ledzion.libraryservice.api.command.UpdateBookCommand;
 import com.ledzion.libraryservice.api.model.Book;
 import com.ledzion.libraryservice.api.model.Category;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
+@AllArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
 
     private BookServiceCommandHandler bookServiceCommandHandler;
 
-    public Mutation(BookServiceCommandHandler bookServiceCommandHandler) {
-        this.bookServiceCommandHandler = bookServiceCommandHandler;
-    }
-
     public Book addBook(String title, String author, Category category) {
+        log.info("Adding new book - title: {}, author: {}, category: {}.", title, author, category);
         return bookServiceCommandHandler.handle(
                 AddBookCommand.builder()
                         .title(title)
@@ -26,6 +27,7 @@ public class Mutation implements GraphQLMutationResolver {
     }
 
     public Book updateBook(String id, String title, String author, Category category){
+        log.info("Updating book with id {} - title: {}, author: {}, category: {}.", id, title, author, category);
         return bookServiceCommandHandler.handle(
                 UpdateBookCommand.builder()
                         .id(id)

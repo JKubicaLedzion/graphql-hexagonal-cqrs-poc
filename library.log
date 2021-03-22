@@ -1,0 +1,80 @@
+2021-03-22 10:33:06.814  INFO 1876 --- [main] c.l.l.d.LibraryServiceApplication        : Starting LibraryServiceApplication using Java 15.0.2 on DESKTOP-RL8PE2K with PID 1876 (D:\Git\library-service\delivery\target\classes started by kamil in D:\Git\library-service)
+2021-03-22 10:33:06.863  INFO 1876 --- [main] c.l.l.d.LibraryServiceApplication        : No active profile set, falling back to default profiles: default
+2021-03-22 10:33:08.745  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-22 10:33:08.745  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-22 10:33:08.896  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 1 JPA repository interfaces.
+2021-03-22 10:33:09.746  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-22 10:33:09.747  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2021-03-22 10:33:09.751  INFO 1876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 MongoDB repository interfaces.
+2021-03-22 10:33:10.883  INFO 1876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-03-22 10:33:10.908  INFO 1876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-22 10:33:10.909  INFO 1876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-22 10:33:11.169  INFO 1876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-22 10:33:11.169  INFO 1876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4193 ms
+2021-03-22 10:33:11.534  INFO 1876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-22 10:33:11.908  INFO 1876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-22 10:33:12.006  INFO 1876 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-22 10:33:12.149  INFO 1876 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-22 10:33:12.573  INFO 1876 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-22 10:33:12.883  INFO 1876 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-03-22 10:33:14.218  INFO 1876 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-22 10:33:14.231  INFO 1876 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 10:33:15.692  INFO 1876 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2021-03-22 10:33:16.037  WARN 1876 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-22 10:33:16.237  INFO 1876 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-22 10:33:16.379  INFO 1876 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [META-INF/resources/index.html]
+2021-03-22 10:33:16.768  INFO 1876 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-03-22 10:33:16.915  INFO 1876 --- [cluster-ClusterId{value='6058645c0a48dd4aa3f1ef61', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2021-03-22 10:33:16.916  INFO 1876 --- [cluster-rtt-ClusterId{value='6058645c0a48dd4aa3f1ef61', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
+2021-03-22 10:33:16.916  INFO 1876 --- [cluster-ClusterId{value='6058645c0a48dd4aa3f1ef61', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=43178100}
+2021-03-22 10:33:17.514  INFO 1876 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-03-22 10:33:17.619  INFO 1876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-22 10:33:17.634  INFO 1876 --- [main] c.l.l.d.LibraryServiceApplication        : Started LibraryServiceApplication in 11.597 seconds (JVM running for 14.217)
+2021-03-22 10:35:30.576  INFO 1876 --- [http-nio-8080-exec-2] c.l.l.adapters.graphql.Query             : TEST - add book
+2021-03-22 10:37:29.614  INFO 1876 --- [http-nio-8080-exec-5] c.l.l.adapters.graphql.Mutation          : TEST - add book
+2021-03-22 10:37:33.370  INFO 1876 --- [http-nio-8080-exec-6] c.l.l.adapters.graphql.Query             : TEST - add book
+2021-03-22 10:37:42.495  INFO 1876 --- [http-nio-8080-exec-7] c.l.l.adapters.graphql.Mutation          : TEST - add book
+2021-03-22 10:37:45.919  INFO 1876 --- [http-nio-8080-exec-8] c.l.l.adapters.graphql.Query             : TEST - add book
+2021-03-22 10:44:59.491  INFO 1876 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-22 10:44:59.495  INFO 1876 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 10:44:59.495  INFO 1876 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-03-22 10:44:59.504  INFO 1876 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-22 10:44:59.507  INFO 1876 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-03-22 10:45:07.268  INFO 21820 --- [main] c.l.l.d.LibraryServiceApplication        : Starting LibraryServiceApplication using Java 15.0.2 on DESKTOP-RL8PE2K with PID 21820 (D:\Git\library-service\delivery\target\classes started by kamil in D:\Git\library-service)
+2021-03-22 10:45:07.273  INFO 21820 --- [main] c.l.l.d.LibraryServiceApplication        : No active profile set, falling back to default profiles: default
+2021-03-22 10:45:08.515  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-22 10:45:08.515  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-22 10:45:08.597  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interfaces.
+2021-03-22 10:45:09.222  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-22 10:45:09.223  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2021-03-22 10:45:09.226  INFO 21820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+2021-03-22 10:45:10.340  INFO 21820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-03-22 10:45:10.357  INFO 21820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-22 10:45:10.357  INFO 21820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-22 10:45:10.556  INFO 21820 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-22 10:45:10.556  INFO 21820 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3199 ms
+2021-03-22 10:45:10.874  INFO 21820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-22 10:45:11.237  INFO 21820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-22 10:45:11.359  INFO 21820 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-22 10:45:11.520  INFO 21820 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-22 10:45:11.938  INFO 21820 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-22 10:45:12.207  INFO 21820 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-03-22 10:45:13.270  INFO 21820 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-22 10:45:13.281  INFO 21820 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 10:45:14.684  INFO 21820 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2021-03-22 10:45:14.961  WARN 21820 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-22 10:45:15.163  INFO 21820 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-22 10:45:15.309  INFO 21820 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [META-INF/resources/index.html]
+2021-03-22 10:45:15.633  INFO 21820 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-03-22 10:45:15.765  INFO 21820 --- [cluster-rtt-ClusterId{value='6058672bffcb3f4916c9e64c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:6}] to localhost:27017
+2021-03-22 10:45:15.766  INFO 21820 --- [cluster-ClusterId{value='6058672bffcb3f4916c9e64c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:5}] to localhost:27017
+2021-03-22 10:45:15.767  INFO 21820 --- [cluster-ClusterId{value='6058672bffcb3f4916c9e64c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=37539800}
+2021-03-22 10:45:16.245  INFO 21820 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-03-22 10:45:16.359  INFO 21820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-22 10:45:16.380  INFO 21820 --- [main] c.l.l.d.LibraryServiceApplication        : Started LibraryServiceApplication in 10.118 seconds (JVM running for 11.383)
+2021-03-22 10:45:35.080  INFO 21820 --- [http-nio-8080-exec-2] c.l.l.adapters.graphql.Mutation          : Adding new book - title: Title1, author: Anna Kruk, category: CRIMINAL.
+2021-03-22 11:03:06.981  INFO 21820 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-22 11:03:06.986  INFO 21820 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 11:03:06.987  INFO 21820 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-03-22 11:03:06.996  INFO 21820 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-22 11:03:06.999  INFO 21820 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

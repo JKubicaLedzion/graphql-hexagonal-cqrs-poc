@@ -1,21 +1,17 @@
 package com.ledzion.libraryservice.core.service;
 
 import com.ledzion.libraryservice.api.BookRepository;
-import com.ledzion.libraryservice.api.command.AddBookCommand;
 import com.ledzion.libraryservice.api.command.UpdateBookCommand;
+import com.ledzion.libraryservice.api.exceptions.BookNotFound;
 import com.ledzion.libraryservice.api.model.Book;
-import com.ledzion.libraryservice.core.exceptions.BookNotFound;
+import lombok.AllArgsConstructor;
 
 import java.util.Optional;
-import java.util.UUID;
 
+@AllArgsConstructor
 public class UpdateBookCommandHandler {
 
     private BookRepository bookRepository;
-
-    public UpdateBookCommandHandler(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
 
     public Book handle(UpdateBookCommand updateBookCommand) {
         Optional<Book> book = bookRepository.getBookById(updateBookCommand.getId());

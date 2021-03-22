@@ -1,4 +1,4 @@
-package com.ledzion.libraryservice.adapters.h2database.exceptions;
+package com.ledzion.libraryservice.api.exceptions;
 
 public class BookNotFound extends RuntimeException {
 

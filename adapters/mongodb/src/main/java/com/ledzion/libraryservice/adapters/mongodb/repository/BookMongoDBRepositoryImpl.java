@@ -1,29 +1,23 @@
 package com.ledzion.libraryservice.adapters.mongodb.repository;
 
-import com.ledzion.libraryservice.adapters.mongodb.exceptions.BookNotFound;
 import com.ledzion.libraryservice.adapters.mongodb.mappers.BookEntityMapper;
-import com.ledzion.libraryservice.adapters.mongodb.model.BookEntity;
 import com.ledzion.libraryservice.api.BookRepository;
+import com.ledzion.libraryservice.api.exceptions.BookNotFound;
 import com.ledzion.libraryservice.api.model.Book;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Repository
+@AllArgsConstructor
 public class BookMongoDBRepositoryImpl implements BookRepository {
 
     private MongoDBRepository mongoDBRepository;
     private BookEntityMapper bookEntityMapper;
-
-    @Autowired
-    public BookMongoDBRepositoryImpl(MongoDBRepository mongoDBRepository, BookEntityMapper bookEntityMapper) {
-        this.mongoDBRepository = mongoDBRepository;
-        this.bookEntityMapper = bookEntityMapper;
-    }
 
     @Override
     public Optional<Book> getBookById(String id) {
@@ -33,8 +27,7 @@ public class BookMongoDBRepositoryImpl implements BookRepository {
 
     @Override
     public List<Book> getAllBooks() {
-        return StreamSupport.stream(
-                mongoDBRepository.findAll().spliterator(), false)
+        return mongoDBRepository.findAll().stream()
                 .map(b -> bookEntityMapper.bookEntityToBook(b))
                 .collect(Collectors.toList());
     }
