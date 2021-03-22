@@ -1,2 +1,2 @@
 # hexagonal-cqrs-graphql-poc
-Hexagonal architecture example + CQRS
+Hexagonal architecture example + CQRS + GraphQL
