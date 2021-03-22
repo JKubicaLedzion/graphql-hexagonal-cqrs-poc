@@ -11,11 +11,6 @@
 
     <artifactId>delivery</artifactId>
 
-    <properties>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <dependency>
             <artifactId>api</artifactId>
@@ -28,19 +23,15 @@
         <dependency>
             <artifactId>mongodb</artifactId>
             <groupId>com.ledzion.adapters</groupId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <artifactId>h2database</artifactId>
             <groupId>com.ledzion.adapters</groupId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <artifactId>graphql</artifactId>
             <groupId>com.ledzion.adapters</groupId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>

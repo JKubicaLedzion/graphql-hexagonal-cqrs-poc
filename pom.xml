@@ -24,8 +24,9 @@
 
     <properties>
         <java.version>15</java.version>
-
         <lombok.version>1.18.8</lombok.version>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
     <dependencyManagement>
@@ -41,7 +42,7 @@
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <artifactId>H2database</artifactId>
+                <artifactId>h2database</artifactId>
                 <groupId>com.ledzion.adapters</groupId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
@@ -50,7 +51,11 @@
                 <groupId>com.ledzion.adapters</groupId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
-
+            <dependency>
+                <artifactId>mongodb</artifactId>
+                <groupId>com.ledzion.adapters</groupId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

@@ -1,24 +1,17 @@
-type Book {
+type BookDto {
     id: ID!
     title: String!
     author: String!
-    category: Category!
-}
-
-enum Category{
-    THRILLER,
-    HORROR,
-    CRIMINAL,
-    FANTASY
+    category: String!
 }
 
 type Query {
-    getBookById(id: ID!): Book
-    getAllBooks: [Book]
+    getBookById(id: ID!): BookDto
+    getAllBooks: [BookDto]
 }
 
 type Mutation {
-    addBook(title: String!, author: String!, category: Category!) : Book!
-    updateBook(id: ID!, title: String, author: String, category: Category) : Book!
+    addBook(title: String!, author: String!, category: String!) : BookDto!
+    updateBook(id: ID!, title: String, author: String, category: String) : BookDto!
     deleteBook(id: ID!): Boolean!
 }

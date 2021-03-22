@@ -12,11 +12,6 @@
     <groupId>com.ledzion.adapters</groupId>
     <artifactId>mongodb</artifactId>
 
-    <properties>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

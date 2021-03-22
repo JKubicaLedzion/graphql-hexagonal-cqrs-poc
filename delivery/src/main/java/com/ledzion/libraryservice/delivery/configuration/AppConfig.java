@@ -2,6 +2,7 @@ package com.ledzion.libraryservice.delivery.configuration;
 
 import com.ledzion.libraryservice.adapters.graphql.Mutation;
 import com.ledzion.libraryservice.adapters.graphql.Query;
+import com.ledzion.libraryservice.adapters.graphql.mappers.BookDtoMapperImpl;
 import com.ledzion.libraryservice.adapters.h2database.mappers.BookEntityMapperImpl;
 import com.ledzion.libraryservice.core.service.AddBookCommandHandler;
 import com.ledzion.libraryservice.core.service.BookCommandHandlerImpl;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Import;
         BookCommandHandlerImpl.class,
         BookQueryHandlerImpl.class,
         BookEntityMapperImpl.class,
+        BookDtoMapperImpl.class,
         AddBookCommandHandler.class,
         DeleteBookCommandHandler.class,
         UpdateBookCommandHandler.class,
